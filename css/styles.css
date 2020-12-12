@@ -39,6 +39,13 @@ p {
   color: var(--primary-text-color);
 }
 
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
 img {
   display: block;
 }
@@ -95,6 +102,13 @@ img {
   display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-header .link:hover,
+.page-header .link:focus {
+  color: var(--accent-color);
 }
 
 .page-header .item + .item {
@@ -133,25 +147,33 @@ img {
 }
 
 .site-nav-list .link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
 
-.current-page {
-  color: var(--accent-color);
+.site-nav-list .link:after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.link.current-page:after {
+  opacity: 1;
 }
 
 /* address */
 
 .page-header .address {
   margin-left: auto;
-}
-
-.page-header .address .link:hover,
-.page-header .address .link:focus {
-  color: var(--accent-color);
 }
 
 .page-header .address .link {
@@ -165,6 +187,13 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-header .address .link:hover,
+.page-header .address .link:focus {
+  color: var(--accent-color);
 }
 
 .address .icon {
@@ -303,6 +332,30 @@ img {
   margin-bottom: 50px;
 }
 
+.activity-section .item {
+  position: relative;
+}
+
+.activity-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--primary-white-color);
+}
+
 /* ======================== END OF ACTIVITY ========================= */
 
 /* ======================== OUR TEAM ========================= */
@@ -369,9 +422,14 @@ img {
   height: 44px;
   color: var(--primary-icon-color);
   border-radius: 50%;
+  background-color: transparent;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-links .link:hover {
+.social-links .link:hover,
+.social-links .link:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
 }
@@ -403,8 +461,12 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   color: var(--primary-icon-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.clients .link:hover {
+.clients .link:hover,
+.clients .link:focus {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
@@ -478,7 +540,8 @@ img {
   color: var(--primary-white-color);
 }
 
-.page-footer .link.icon:hover {
+.page-footer .link.icon:hover,
+.page-footer .link.icon:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
 }
@@ -516,12 +579,19 @@ img {
   line-height: 1.625;
   text-align: center;
   letter-spacing: 0.03em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-list .button:hover,
 .filter-list .button:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+
   outline: none;
 }
 
@@ -539,6 +609,7 @@ img {
 .work-examples .item {
   margin-right: 30px;
   margin-bottom: 30px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .work-examples .item:hover,
